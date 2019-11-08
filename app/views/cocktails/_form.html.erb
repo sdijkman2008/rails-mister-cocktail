@@ -1,0 +1,28 @@
+<h1>Edit cocktail</h1>
+
+<%= simple_form_for [@cocktail] do |f| %>
+
+  <% if @cocktail.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1><%= f.input :name %></h1>
+
+  <h2>Recipe</h2>
+    <% @cocktail.doses.each do |dose| %>
+      <tr>
+        <td><%= dose.description %> <%= dose.ingredient.name %></td>
+      </tr>
+    <%end%>
+
+  <div class="form-actions">
+    <%= f.submit "Submit cocktail", class: "btn btn-primary" %>
+  </div>
+<% end %>
+

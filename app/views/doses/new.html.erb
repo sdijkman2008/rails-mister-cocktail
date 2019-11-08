@@ -1,0 +1,14 @@
+<h4>Add dosage</h4>
+
+<%= simple_form_for [cocktail, dose] do |f| %>
+  <div class="form-inputs">
+    <%= f.association :ingredient %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Add dosage", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<!--  -->
