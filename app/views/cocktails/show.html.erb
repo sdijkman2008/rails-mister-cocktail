@@ -15,6 +15,18 @@
 <div>
   <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-primary" %>
 </div>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div class="form-inputs">
+    <%= f.association :ingredient %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Add dosage", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <div>
   <!-- <%= button_to 'Back', cocktails_path %> -->
   <%= link_to 'Back', cocktails_path %>
